@@ -1,262 +1,181 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-    <title>Time Shooter 2 Unblocked - Unblocked Games 66</title>
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" href="style.css">
-			<script type="text/javascript" src="patch/js/null.js?//busqueda.me/mavs/nine/controls.js"></script>
-  </head>
-  <body class="dark">
-    <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas"></canvas>
-    </div>
-    <div id="loading-cover" style="display:none;">
-      <div id="unity-loading-bar">
-        <div id="unity-logo"><img src="logo.png"></div>
-        <div id="unity-progress-bar-empty" style="display: none;">
-          <div id="unity-progress-bar-full"></div>
-        </div>
-        <div class="spinner"></div>
-      </div>
-    </div>
-    <div id="unity-fullscreen-button" style="display: none;"></div>
-    <script>
-      const hideFullScreenButton = "1";
-      const buildUrl = "Build";
-      const loaderUrl ="TimeShooter2_Yandex.loader.js";
-      const config = {
-        dataUrl:"TimeShooter2_Yandex.data.unityweb",
-        frameworkUrl:"TimeShooter2_Yandex.framework.js.unityweb",
-        codeUrl:"TimeShooter2_Yandex.wasm.unityweb",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "GoGoMan",
-        productName: "Time Shooter 2",
-        productVersion: "0.1",
-      };
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Geometry Dash Unblocked - Unblocked Games 66</title>
+  <script type="text/javascript" src="patch/js/null.js?controls.js"></script>
+<style media="screen">
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  font-size: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  overflow: hidden;
+}
+#wrapper {
+  display: block;
+  width: 100vw;
+  height: 75vw;
+  position: relative;
+}
+#monitors {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+@media (min-aspect-ratio: 480/360) {
+  #wrapper {
+    height: 100vh;
+    width: 133.33333333333334vh;
+  }
+}
+#stage {
+  width: 100%;
+  height: 100%;
+}
 
-      const container = document.querySelector("#unity-container");
-      const canvas = document.querySelector("#unity-canvas");
-      const loadingCover = document.querySelector("#loading-cover");
-      const progressBarEmpty = document.querySelector("#unity-progress-bar-empty");
-      const progressBarFull = document.querySelector("#unity-progress-bar-full");
-      const fullscreenButton = document.querySelector("#unity-fullscreen-button");
-      const spinner = document.querySelector('.spinner');
+#loading-progress {
+  color: #0ff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  font-size: 16px;
+}
 
-      const canFullscreen = (function() {
-        for (const key of [
-            'exitFullscreen',
-            'webkitExitFullscreen',
-            'webkitCancelFullScreen',
-            'mozCancelFullScreen',
-            'msExitFullscreen',
-          ]) {
-          if (key in document) {
-            return true;
-          }
-        }
-        return false;
-      }());
 
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        container.className = "unity-mobile";
-        config.devicePixelRatio = 1;
-      }
-      canvas.style.background = "url('TimeShooter2_Yandex.jpg') center / cover";
-      loadingCover.style.display = "";
+.monitor {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  overflow: hidden;
+  padding: 3px;
+  color: white;
+  white-space: pre;
+}
+.monitor-label {
+  margin: 0 5px;
+  font-weight: bold;
+}
+.monitor-value {
+  display: inline-block;
+  vertical-align: top;
+  min-width: 34px;
+  text-align: center;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  user-select: text;
+  transform: translateZ(0);
+}
+.default .monitor-value, .slider .monitor-value {
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: 0 5px;
+  padding: 1px 3px;
+}
+.large {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 0.1rem 0.25rem;
+  min-width: 3rem;
+}
+.large .monitor-label {
+  display: none;
+}
+.large .monitor-value {
+  font-size: 1rem;
+  width: 100%;
+}
+.list {
+  padding: 0;
+  overflow: auto;
+  overflow-x: hidden;
+}
+.list .monitor-label {
+  text-align: center;
+  padding: 3px;
+  width: 100%;
+  display: block;
+  margin: 0;
+  box-sizing: border-box;
+  white-space: pre-wrap;
+}
+.list .monitor-value {
+  display: block;
+}
+.row {
+  margin: 2px 5px;
+  transform: translateZ(0);
+  text-align: left;
+  border-radius: 0.25rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  height: 20px;
+  line-height: 20px;
+  padding: 0 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
-      const script = document.createElement("script");
-      script.src = loaderUrl;
-      script.onload = () => {
-        createUnityInstance(canvas, config, (progress) => {
-          spinner.style.display = "none";
-          progressBarEmpty.style.display = "";
-          progressBarFull.style.width = `${100 * progress}%`;
-        }).then((unityInstance) => {
-          window.unityInstance = unityInstance;
-          loadData();
-          loadingCover.style.display = "none";
-          if (canFullscreen) {
-            if (!hideFullScreenButton) {
-              fullscreenButton.style.display = "";
-            }
-            fullscreenButton.onclick = () => {
-              unityInstance.SetFullscreen(1);
-            };
-          }
-        }).catch((message) => {
-          alert(message);
-        });
-      };
-      document.body.appendChild(script);
-    </script>
-    <script src="v2.js"></script>
+.slider input {
+  display: block;
+  width: 100%;
+  transform: translateZ(0);
+}
+#asking-box {
+  display: none;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(33, 33, 33, 0.7);
+}
+.asking #asking-box {
+  display: block;
+}
+#question {
+  display: block;
+  margin: 0 10px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: white;
+}
+#answer {
+  border: none;
+  background: none;
+  width: 100%;
+  font: inherit;
+  font-size: 16px;
+  color: white;
+  padding: 10px;
+  box-sizing: border-box;
+}
+#answer:focus {
+  outline: none;
+}
+</style>
+</head>
+<body style="overflow:hidden;">
+<div id="wrapper">
+<canvas id="stage"></canvas>
+<div id="monitors"></div>
+<div id="asking-box">
+<label id="question" for="answer">Question</label>
+<input type="text" id="answer">
+</div>
+</div>
 
-    <script type="text/javascript">
-      var player = null;
-      var sdk;
-      var payments = null;
-  
-      YaGames.init({
-        adv: {
-          onAdvClose: wasShown => {
-            console.info('adv closed!');
-          }
-        }
-      })
-        .then(ysdk => {
-          sdk = ysdk;
-          ysdk.getPlayer({ signed: true }).then(_player => {
-            player = _player;
-          }).catch(err => {
-          });
-          sdk.adv.showFullscreenAdv({ callbacks: {} });
-        });
 
-      function checkCom()
-      {
-        var isCom = 0;
-        var output;
+<span id="loading-progress">...</span>
 
-        if (sdk != null) {
-          var output = sdk.environment.i18n.tld;
-          if(output == "com")
-          isCom = 1;
-        }
-        
-        console.log(output);
-        console.log(isCom);
-        
-        window.unityInstance.SendMessage('GameManager', 'IsCom', isCom);
-      }
 
-      function checkLanguage()
-      {
-        var currentLanguage = 0;
-        var output;
-
-        if (sdk != null) {
-          var output = sdk.environment.i18n.lang;
-          if(output == "ru" || output == "be" || output == "kk" || output == "uk" || output == "uz")
-            currentLanguage = 0;
-          else if(output == "tr")
-            currentLanguage = 2;
-          else
-            currentLanguage = 1;
-        }
-
-        console.log(output);
-        console.log(currentLanguage);
-
-        window.unityInstance.SendMessage('GameManager', 'SetLanguage', currentLanguage);
-      }
-  
-      function loadData() {
-        checkCom();
-        if (player != null) {
-          player.getData(["levels", "sounds", "music", "language", "tutor", "sensitivity"]).then(data => {
-            if (data.levels) {
-              var sounds;
-              var music;
-              var tutor;
-              if (data.sounds) {
-                sounds = 1;
-              }
-              else {
-                sounds = 0;
-              }
-              if (data.music) {
-                music = 1;
-              }
-              else {
-                music = 0;
-              }
-              if (data.tutor) {
-                tutor = 1;
-              }
-              else {
-                tutor = 0;
-              }
-              var dataStr = data.levels + ' ' + sounds + ' ' + music + ' ' +  data.language + ' ' + tutor + ' ' + data.sensitivity;
-              console.log('Get Data ', dataStr);
-              window.unityInstance.SendMessage('GameManager', 'LoadData', dataStr);
-            }
-          }).catch(() => {
-            console.log('No Data');
-          });
-        }
-      }
-    </script>
-  
-  
-  
-    <script>
-      function saveData(level, isSound, isMusic, language, tutor, sensitivity) {
-        console.log('Saving....');
-        if (player != null) {
-          player.getData(["levels", "sounds", "music", "language", "tutor", "sensitivity"]).then(data => {
-            if (data.levels) {
-              if (data.levels <= level) {
-                player.setData({
-                  levels: level,
-                  sounds: isSound,
-                  music: isMusic,
-                  language: language,
-                  tutor: tutor,
-                  sensitivity: sensitivity
-                }).then(() => {
-                  console.log('data is set -update');
-                });
-              }
-            }
-            else {
-              player.setData({
-                levels: level,
-                sounds: isSound,
-                music: isMusic,
-                language: language,
-                tutor: tutor,
-                sensitivity: sensitivity
-              }).then(() => {
-                console.log('data is set -first');
-              });
-            }
-  
-          }).catch(() => {
-            player.setData({
-              levels: level,
-              sounds: isSound,
-              music: isMusic,
-              language: language,
-              tutor: tutor,
-              sensitivity: sensitivity
-            }).then(() => {
-              console.log('data is set -first');
-            });
-          });
-        }
-      }
-    </script>
-  
-  
-    <script>
-      function showFullscrenAd() {
-
-      }
-    </script>
-  
-    <script>
-      function rate() {
-
-      }
-    </script>
-  
-    <script>
-      function showRewardedAd(id) {
-
-      }
-    </script>
-  </body>
+<script type="text/javascript" src="./gdash.js"></script>
+</body>
 </html>
