@@ -1,38 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
 <head>
-<meta charset="UTF-8">
-<title>Basket Random Unblocked - Unblocked Games 911</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-
-<meta name="generator" content="Construct 3">
-<link rel="manifest" href="appmanifest.json">
-<link rel="stylesheet" href="style.css">
-<meta name="website" content="classroom6x.gitlab.io" />
-
-<script>
-window.addEventListener("keydown", function(e) {
-    // space and arrow keys
-    if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
-        e.preventDefault();
-    }
-}, false);
-</script>
-
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | Snow Rider 3D Unblocked - Unblocked Games 911</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <script src="TemplateData/UnityProgress.js"></script>
+    <script src="Build/UnityLoader.js"></script>
+    <link rel="canonical" href="https://slope-game.github.io/snow-rider-3d.html">
+    <script>
+      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/SnowRider3D-gd-1.json", {onProgress: UnityProgress,Module:{onRuntimeInitialized: function() {UnityProgress(gameInstance, "complete")}}});
+    </script>
 </head>
 <body style="overflow:hidden;">
-<div id="fb-root"></div>
-	<script src="box2d.wasm.js"></script>
-	<noscript>
-		<div id="notSupportedWrap">
-			<h2 id="notSupportedTitle">This content requires JavaScript</h2>
-			<p class="notSupportedMessage">JavaScript appears to be disabled. Please enable it to view this content.</p>
-			<p class="notSupportedMessage">This content was made with Construct 3 - a <a href="https://www.construct.net/en">free game maker</a>.</p>
-		</div>
-	</noscript>
-	<script src="scripts/supportcheck.js"></script>
-	<script src="scripts/offlineclient.js"></script>
-	<script src="scripts/main.js"></script>
-	<script src="scripts/register-sw.js"></script>
+    <div class="webgl-content">
+        <div id="gameContainer" style="width: 960px; height: 600px; margin: auto"></div>
+  <!--       <div class="footer">
+            <div class="webgl-logo"></div>
+            <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
+            <div class="title">Snow Rider 3D</div>
+        </div> -->
+    </div>
 </body>
 </html>
