@@ -1,67 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-
-    <meta charset="utf-8">
-
-    <title>Big Shot Boxing / Играть на igroutka.ru Unblocked - Unblocked Games 911</title>
-
-    <meta id="viewport" name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <link rel="shortcut icon" type="image/png" href="./favicon.png">
-    <script type="text/javascript" src="./BoxingPoki_customPreloader.js"></script>
-
-    <script>
-        window.addEventListener("touchmove", function (event) {
-            event.preventDefault();
-        }, {capture: false, passive: false});
-        if (typeof window.devicePixelRatio != 'undefined' && window.devicePixelRatio > 2) {
-            var meta = document.getElementById("viewport");
-            meta.setAttribute('noncontent', 'width=device-width, initial-scale=' + (2 / window.devicePixelRatio) + ', user-scalable=no');
-        }
-    </script>
-
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        /*<!-- #content { background: #000000; width: 100%; height: 100%; } --> */
-
-        /* !important is probably not needed here */
-        /* #noncontent { width: 100%; height: 100%; }
-        #noncontent canvas { width: 100% !important; height: 100% !important; }  /*needed */
-
-        /*
-        #noncontent { width: 100%; height:100%; }
-        #noncontent canvas { width: 100% !important; height:100% !important; }
-		*/
-        #noncontent {
-            background: #000000;
-            width: 100%;
-            height: 100%;
-        }
-
-        /* full stretch
-        #noncontent { width: 100%; height:100%; }
-        #noncontent canvas { width: 100% !important; height:100% !important; }
-		*/
-
-    </style>
-
-<script type="text/javascript" src="./patch/js/null.js?//m.igroutka.ru/files/scripts/scr.js"></script></head>
+<title>Игра Фортнайт: Строй Сейчас - Vseigru.net Unblocked - Unblocked Games 911</title>
+<link rel="stylesheet" href="/lib/game-loader/gameloader2020.css" />
+<script src="/lib/game-loader/gameloader2020.js"></script>
+<script src="/lib/game-loader/gameloader-helper.js"></script>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
 <body style="overflow:hidden;">
-
-
-<div id="noncontent"></div>
-
 <script type="text/javascript">
-    lime.embed("BoxingPoki_customPreloader", "noncontent", 600, 337);
+	var options = {
+		author: "Vseigru",
+		logo: "logo.jpg",
+		gameName: "Игра Фортнайт: Строй Сейчас",
+		gameNameEu: "Fortnite: BuildNow GG",
+		gameUrl: "32619",
+		moreLink: (""),
+		allowFullscreen: true,
+		locale: "ru_RU",
+		loader: "unity2020",
+		loaderOptions: {
+			unityLoaderUrl: "Build/BuildNow.loader.js",
+			unityConfigOptions: {
+				dataUrl: "Build/BuildNow.data",
+				frameworkUrl: "Build/BuildNow.framework.js",
+			    codeUrl: "Build/BuildNow.wasm",
+				streamingAssetsUrl: "StreamingAssets"
+			}
+		},
+    };
+	GameInit.load(options);	  
 </script>
-
 </body>
 </html>
